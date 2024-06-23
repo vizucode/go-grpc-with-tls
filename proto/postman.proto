@@ -1,0 +1,17 @@
+syntax="proto3";
+
+option go_package = "./proto";
+
+message Newspaper {
+    string title = 1;
+    string description = 2;
+}
+
+message RespNewspaper {
+    string responseMessage = 1;
+    repeated Newspaper data = 2;
+}
+
+service Postman {
+    rpc SendNewspaper(Newspaper) returns (RespNewspaper) {}
+}
